@@ -1,0 +1,49 @@
+
+1. Mybatis
+ 1-1. Mybatis Framework 모듈 내 구성요소
+   - Mybatis confoguration file 	
+	-> 데이터베이스의 연결 대상, 매핑 파일의 경로
+	-> 작업 설정 등과 같은 세부 사항을 설명하는 파일이며, 기본 작업을 변경하거나
+	확장 할 때 설정한다.
+
+   - SqlSessionFactoryBuilder
+	-> 구성 파일을 읽고 생성하는 SQLSessionFactory 구성 요소이다.
+
+   - SqlSessionFactory
+	-> SqlSession을 생성하는 구성 요소
+
+   - SqlSession
+	-> SQL 실행 및 트랜잭션 제어를 위한 API를 제공하는 구성요소이다.
+	-> 데이터베이스에 엑세스할 떄 가장 중요한 역할을 하는 구성요소이다.
+
+  - Mapping file
+	-> SQL을 작성하는 XML파일이다.
+
+  1-2. 클라이언트의 각 요청에 대해 수행되는 프로세스 흐름
+   - 클리이언트는 응용 프로그램 대한 프로세스를 요청합니다.
+   응용 프로그램은 SqlSessionFactoryBuilder를 사용하여 작성된
+   SqlSessionFactory에서 SqlSession을 가져옵니다.
+   SqlSessionFactory는 SqlSession을 생성하여 이를 어플리케이션으로 리턴합니다.
+   응용프로그램은 SqlSession에서 Mapper Interface의 구현 객체를 가져옵니다.
+   Mapper Interface의 구현 객체는 SqlSession메서드를 호출하고 SQL실행을 요청합니다.
+   SqlSession은 매핑 파일에서 실행할 SQL을 가져와서 SQL을 실행합니다.
+
+   1-3. 결과값
+
+	SELECT	-> SELECT문에 해당하는 결과
+	INSERT	-> 1
+	UPDATE	-> UPDATE된 행의 갯수 반환(없으면 0)
+	DELETE	-> DELETE된 행의 갯수(없으면0)
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>day13</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  <filter>
+    <filter-name>encoding</filter-name>
+    <filter-class>filter.EncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>encoding</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+  
+  <!-- 
+  	<filter-name> : 말 그대로 필터의 이름
+  					<filter-mapping>의 <filter-name>에 들어가는 이름과 같아야 한다.
+  	<filter-class>: 필터가 있는 위치이다. 여기서 filter라는 자바 패키지에
+  					EncodingFilter.java를 만들었다는 의미이다.
+  	<url-pattern> : 어떤 형태의 url을 잡아낼 것인지 결정하는 부분이다.
+  					*.jsp는 모든 jsp요청에 적용을 시키는 방법을 이용하였다.
+   -->
+  
+  <servlet>
+  	<servlet-name>filtertest</servlet-name>
+  	<servlet-class>filter.FilterTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>filtertest</servlet-name>
+  	<url-pattern>/FilterTest</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+  	<filter-name>servlet</filter-name>
+  	<filter-class>filter.ServletFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>servlet</filter-name>
+  	<servlet-name>filtertest</servlet-name>
+  </filter-mapping>
+</web-app>
+
+
+
+
+
+
+
+

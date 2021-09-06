@@ -1,0 +1,51 @@
+
+1. EL 
+  1-1. EL 연산자
+    - 산술 연산자
+	: +, -, *, /(div), %(mode)
+    - 논리 연산자
+	: &&(and), ||(or), !(not)
+    - 비교 연산자
+	: ==(eq), !=(ne), <(lt), >(gt), <=(le), >=(ge)
+    - empty 연산자
+	: 값이 null 이거나 공백문자인지를 판단하는 연산자
+	${empty ""}	-> true
+	${empty null}	-> true
+	${empty data}	-> data 값이 없으면 true
+
+2. Model1 방식
+
+	a.jsp	->	b.jsp	->	c.jsp
+			↓↑
+      		      DAO, DTO(Beans)
+			↓↑
+			DB
+	
+	-> b.jsp 에서 DAO의 메소드를 호출함으로써 자바코드가 섞이게 된다.
+	하지만 선언은 분리되어 JAVA파일에 구현이 되어있기 때문에
+	JSP내의 JAVA코드의 양이 굉장히 줄어들게 된다.
+	하지만, 페이지가 확장될수록 유지보수가 상대적으로 좋지않다.	
+
+3. Model2 방식
+
+	a.jsp	->	Controller(web.xml)		-> 	c.jsp
+				↓↑
+      		      	    DAO, DTO(Beans)
+				↓↑
+				DB
+
+	-> a.jsp에서 다음 페이지를 이동하기 전 필요한 비지니스 로직을 완벽히
+	분리하여 관리한다.
+
+
+
+
+
+
+
+
+
+
+
+
+

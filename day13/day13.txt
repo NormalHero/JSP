@@ -1,0 +1,145 @@
+
+1. 필터
+  1-1. 필터란?
+    - 클라이언트로부터의 요청이 백엔드로 가기 전에 가로채기 위해서
+    서버로부터의 응답이 클라이언트로 보내지기 전에 조작하기 위해서 사용한다.
+
+2.EL문과 JSTL
+  - MyBatis와 유사하게 라이브러리로 자바 구문을 만들어 놓고 필요할
+  때마다 꺼내 쓰면 되기 때문에 유지보수에 편리하다. JSP페이지 내에
+  자바 코드와 HTML코드가 섞여 있으면 가독성이 떨어진다. 
+  EL문과 JSTL문을 사용하면 HTML과 같은 태그로만 구성된 일괄된
+  소스코드를 볼 수 있다는 장점이 있다.
+ 
+  2-1. EL(Expression Language)
+   - 값을 간결하고 간편하게 출력할 수 있도록 해주는 언어
+   - <%= %>, out.println()과 같은 자바코드를 더 이상 사용하지 않고
+   좀 더 간편하게 출력을 지원하기 위한 도구.
+
+  2-2. EL 구문
+   - EL구문은 ${..}내에 표현식으로 표현합니다.
+   - EL 표현식
+	문자
+		${true}
+		${false}
+		${"JAVA"}
+
+   - EL식에서는 Attribute의 이름으로 해석이된다. 
+   값을 찾을때는 Attribute는 작은 Scope에서 큰 Scope로 찾는다.
+
+	page > request > session > application
+		
+  2-3. 내장객체
+   - EL에서도 JSP처럼 내장 객체를 지원하므로 필요한 객체는 내장객체를
+   참조변수 이름으로 곧바로 사용할 수 있다.
+
+	내장객체			설명
+	pageContext		JSP내장객체 PageContext 동일
+	
+	pageScope		pageContext에 등록된 데이터의 
+				이름과 값을 저장하고 있는 map
+	
+	requestScope		HttpServletRequest에 등록된
+				데이터의 이름과 값을 저장하고
+				있는 map
+
+	sessionScope		HttpSession에 등록된 데이터의 이름과
+				값을 저장하고 있는 map객체
+
+	applicationScope	ServletContext에 등록된 데이터의
+				이름과 값을 저장하고 있는 map 객체
+
+	param			QueryString의 이름과 값을 저장하고
+				있는 map 객체
+
+	paramValues		같은 이름으로 전달된 질의 문자열의
+				이름과 값들을 저장하고 있는 map객체
+
+	header			요청정보 헤더의 정보를 이름과 값으로
+				저장하고 있는 map객체
+
+	headerValues		요청정보 헤더의 정보들을 이름과 값들을
+				저장하고 있는 map 객체
+
+	cookie			요청을 보낸 클라이언트의 쿠키 이름과
+				값을 저장하고 있는 map객체
+
+	initParam		웹 어플리케이션에 저장한 초기 파라미터의
+				이름과 값을 저장하고 있는 map 객체
+
+
+   - PageContext/Request에서 사용될때
+	setAttribute("key",value);	-> 값을 넣는다.
+	getAttribute("key");		-> 값을 가져온다.
+	removeAttribute("key");		-> 값을 지운다.
+
+   - session에서 사용될때
+	setAttribute("key",value);	-> 값을 넣는다.
+	getAttribute("key");		-> 값을 가져온다.
+	removeAttribute("key");		-> 값을 지운다.
+	invaildate()			-> 값을 전부 지운다   
+
+   - EL문에서 파라미터값 받아오기
+	${param.키값}
+
+   - EL문에서 쿠키값 받오기
+	${cooki.키값.value}
+
+
+3. JSTL
+  3-1. JSTL이란?
+   - JSP Standard Tab Library
+   - 연산이나 조건문, 반복문을 편하게 처리할 수 있으며, JSP페이지 내에서 자바코드를
+   사용하지 않고도 로직을 구현할 수 있도록 효율적인 방법을 제공한다.
+
+	자바				JSTL
+	for(초기식;조건식;증감식){}		<c:forEach></c:forEach>
+
+   3-2. JSTL 다운로드
+    - archive.apache.org/dist/jakarta/taglibs/standard/binaries/
+
+   3-3. JSTL 태그
+   	<c:set />
+		-> 변수 만들때 사용
+
+	<c:out> </c:out>
+		-> 값을 출력(EL 문을 좀 더 많으 사용한다.)
+
+	<c:if>	</c:if>
+		-> 조건제어
+		내부에 c:when, c:otherwise만 있어야 한다.
+
+	<c:when>  </c:when>
+		-> 조건 제어(case문)
+
+	<c:otherwise>  </c:otherwise>
+		-> 조건제어(default)
+
+	<c:forEach>  </c:forEach>
+		-> 반복문 제어(for문)
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

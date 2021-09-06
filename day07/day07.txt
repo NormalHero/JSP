@@ -1,0 +1,128 @@
+
+1. DB
+  1-1. DB 계정생성
+    - create user wjsp identified by wjsp;
+    - grant connect, resource to wjsp;
+
+  1-2. SQL
+    - Structured Query Language
+	-> 데이터베이스에서 CRUD(Create, Read, Update, Delete) 과정을
+  	하기위한 명령어
+    - DDL(Data Definition Language) : 데이터 정의어
+ 	-> 테이블에 관련된 언어
+	-> 테이블 생성 : CREATE
+	-> 테이블 수정 : UPDATE
+	-> 테이블 삭제 : DELETE
+
+    - DML(Data Manipulation Language) : 데이터 조작어
+	-> 실제 데이터들에 관련된 언어
+	-> 데이터 추가 : INSERT
+	-> 데이터 수정 : UPDATE
+	-> 데이터 삭제 : DELETE
+	-> 데이터 검색 : SELECT
+
+   - 자료형(TYPE)
+  	-> 숫자
+		NUMBER(자리수) : 정수
+			NUMBER(3) : 0 ~ 999까지 담기는 자료형
+		NUMBER(전체자리수, 소수점자리수) : 실수
+			NUMBER(4,2) : ~ 99.99
+
+	-> 문자열
+		VARCHAR2(길이)
+			VARCHAR2(10)에 'A'데이터를 넣으면 공백이 생기지 않고,
+			'A'만 들어간다. 값의 길이만큼 배정
+
+	-> 시간
+		DATE
+  
+    - 테이블 생성
+	CREATE TABLE 테이블명(
+		컬럼명1 자료형,
+		컬럼명2 자료형,
+		....
+		CONSTRAINT 제약조건명 제약조건(컬럼)
+	);
+
+    - 테이블 삭제
+	DROP TABLE 테이블명;
+
+    - 데이터 수정
+	UPDATE 테이블명
+	SET 기존컬럼명 = 새로운 값
+	WHERE 조건식;
+  
+    - 데이터 삭제
+	DELETE FROM 테이블명
+	WHERE 조건식;
+
+    - 데이터 검색
+	SELECT 컬럼명1, 컬럼명2, ...
+	FROM 테이블명 WHERE 조건식;
+
+   - PK(Primary Key)
+	-> 고유한 값(각 데이터들을 구별하여 역할), 중복되지 않고, 비어있지 않음(NOT NULL).
+
+  1-3. java sql package
+    - java.sql.Connection
+	-> 특정 데이터베이스와 연결정보를 가지는 Interface입니다.
+	-> Driver Manager 로부터 Connection 객체를 가져옵니다.
+
+   - java.sql.PreparedStatement
+	-> SQL문을 컴파일하여 실행 속도를 높여준다.
+
+   - java.sql.ResultSet
+	-> SELECT 구문 실행 결과를 조회할 수 있는 방법을 정의한 Interface입니다.
+
+2. 자바빈즈
+  2-1. 자바빈즈(자바 객체)
+   - JSP 표준 액션 태그를 통해 접근할 수 있는 자바 클래스로서 멤버변수(필드)와
+   setter, getter 메소드로 이루어져 있다. 하나의 JSP페이지에서도 사용하고 그 외의
+   다른 페이지에서도 사용 가능하다.
+
+ 2-2. 자바빈즈 태그
+   - MemberBean
+   - 객체생성
+	java -> MemberBean member = new MemberBean();
+	jsp -> <jsp:useBean class="패키지명.MemberBean" id="member">
+
+   - setter()
+	java -> member.setName("자바학생");
+	jsp -> <jsp:setProperty name="member" property="name" value="자바학생">
+
+   - getter()
+	java -> memeber.getName();
+	jsp -> <jsp:getProperty name="member" property="name">
+
+  - 자바빈즈 개발 규약
+	1. 패키지화(default 패키지는 인식 불가)
+	2. 필드의 접근자 private로 설정(필드의 값은 메소드로만 접근하게 하기 위함)
+	3. getter, setter 메소드는 반드시 public으로 설정
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+** 웹하드
+http://www.kedudisk.com/
+ID : it1000 / PW : 학생11!
+
+
+
+

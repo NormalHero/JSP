@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/*
+		aDiv 안의 a tag :(속성) link(link 일때)
+	*/
+	#aDiv a:link{
+		color: red;
+	}
+	
+	#red{
+		color: red;
+	}
+	
+	#blue{
+		color: blue;
+	}
+
+</style>
+</head>
+<body>
+	<!-- h태그와 p태그는 <br>을 쓰지않아도 엔터가 들어간다. -->
+	<!-- h태그와 p태그는 <br>을 쓰지않아도 엔터가 들어간다. -->
+	<!-- p태그가 h태그보다 좀 더 여유공간이 생긴다. -->
+	<!-- h3 : head, 제목말 -->
+	<h3>a 태그</h3>
+	<p>페이지 이동 할 때 스는 태그</p>
+
+	<!-- 
+		상대경로
+			./ 	: 현재 폴더
+			../ : 상위 폴더
+	 -->
+	<a href="../get/from.jsp">form.jsp 상대경로 파일로 이동하기</a><br><br>
+	<a href="/day03/get/from.jsp">form.jsp 절대경로 파일로 이동하기</a><br><br>
+	
+	<!-- 그림파일은 WebContent 안에 있어야한다. -->
+	<h3>img 태그</h3>
+	<p>이미지 파일을 띄울 때 쓰이는 태그</p>
+	
+	<!-- alt : 그림파일을 띄우지 못했을 때 또는 찾지 못했을때 대신해서 띄워줄 문자열 -->
+	<img alt="고양이1 사진" src="./고양이1.jpg"><br>
+	<img alt="고양이3 사진" src="../image/고양이2.jpg"><br>
+	<a href="https://www.naver.com">
+		<img alt="고양이3 사진" src="../고양이3.jpg">
+	</a><br><br>
+	
+	<h3>div 태그</h3>
+	<p>여러 요소들을 하나로 묶을 때 사용하는 태그, 스타일을 한번에 줄때 사용</p>
+	<div id="aDiv">
+		<a href="https://www.naver.com">네이버 이동</a><br>
+		<a href="https://www.google.com">구글 이동</a><br>
+		<a href="https://www.daum.net">다음 이동</a><br>
+	</div><br><br>
+	
+	<h3>span 태그</h3>
+	<p>텍스트의 특정 부분을 묶는데 사용하는 태그, 특정부분에만 스타일을 줄때 사용</p>
+	<span id="red">JSP</span> span Tag 예제 <span id="blue">고생하셨습니다!</span>
+	
+	
+	
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
